@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="cihuy/style.css">
+<script src="cihuy/script.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=DM+Serif+Display:ital@0;1&family=Dancing+Script:wght@400..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="valentine-confession.css">
+    <title>Surat</title>
+    <style>
+        .music-card {
+            width: 250px;
+            background: pink;
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            font-family: sans-serif;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            margin: 20px auto;
+        }
+        .progress-bar {
+            background: #f50057;
+            height: 5px;
+            width: 0%;
+            border-radius: 5px;
+        }
+        .time {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            margin-bottom: 10px;
+        }
+        .controls button {
+            background: none;
+            border: none;
+            font-size: 20px;
+            margin: 0 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <p class="instruction">Click the heart!</p>
+    <div class="container">
+        <label>
+            <div class="heart">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/4/42/Love_Heart_SVG.svg">
+            </div>
+            <input id="messageState" type="checkbox" style="display:none"/>
+        </label>
+        <div class="message">
+            <h1 style="font-family: Cinzel, serif; font-size: 40px; letter-spacing: 1.2px;">Dear Danny,</h1>
+            <p> 
+                <span>
+                    &emsp; Halloo Dannyyy, happy birthday yaa, smoga yang diharapkan atau yang impikan selama ini dapat terkabulkan. Maaf ngucapinnya telat bgttt, sebenarnya waktu kamu ulang tahun aku sempat mau reply sg kamu tapi aku malu karena aku tau kamu pasti masih asing sama aku, jadinya aku cuma berani ngucapin dari surat ini dehh hehe...
+                </span>
+                <br><br>
+                <span>
+                    &emsp; Oiya aku ga mau basa basi lagi sih, intinya aku suka sama kamu. Mungkin dari gerak-gerik ku selama ini udah ketahuan, atau bisa aja kamu ga sadar? aku pernah diceritain sama teman kelas mu yang kebetulan teman ku juga, katanya kamu di kelas sering diolok <b>"danny ganteng"</b> ?? tapi memang ganteng sih, temen mu yang ngolok bener kok.
+                </span>      
+                <br><br>
+                <span>
+                    &emsp; Aku juga punya lagu yang mewakili perasaan ku ke kamu sekarang, nama lagu nya "Pesan Cinta" jika berkenan kamu bisa dengerin sekarang..
+                </span>
+                <br><br>
+                <style>
+                    body {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        height: 100vh;
+                        background: #f8f8f8;
+                        font-family: sans-serif;
+                        margin: 0;
+                    }
+                
+                    .container {
+                        text-align: center;
+                    }
+                
+                    .music-player {
+                        background: #ffe6f0;
+                        padding: 20px;
+                        border-radius: 20px;
+                        text-align: center;
+                        box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+                        width: 250px;
+                        margin: 20px auto;
+                    }
+                
+                    .music-player h2 {
+                        margin: 10px 0 5px;
+                    }
+                
+                    .music-player p {
+                        margin: 0 0 20px;
+                        color: #777;
+                    }
+                
+                    .progress-container {
+                        width: 100%;
+                        margin-bottom: 10px;
+                    }
+                
+                    .progress {
+                        width: 100%;
+                    }
+                
+                    .buttons {
+                        display: flex;
+                        justify-content: space-around;
+                        align-items: center;
+                        margin-top: 10px;
+                    }
+                
+                    .circle-btn {
+                        width: 50px;
+                        height: 50px;
+                        border-radius: 50%;
+                        background: #fff;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+                        cursor: pointer;
+                        transition: 0.3s;
+                        font-size: 20px;
+                        color: #ff4d6d;
+                    }
+                
+                    .circle-btn:hover {
+                        transform: scale(1.1);
+                    }
+                
+                    .circle-btn.love.active {
+                        background: #ff4d6d;
+                        color: #fff;
+                    }
+                </style>                
+                </head>
+                <body>
+                
+                <div class="music-player">
+                    <h2>Pesan Cinta</h2>
+                    <p>Afgan</p>
+                    <div class="progress-container">
+                        <input type="range" class="progress" value="0" min="0" max="100">
+                    </div>
+                    <div class="time">
+                        <span class="current-time">0:00</span> <span class="duration">0:00</span>
+                    </div>
+                    <div class="buttons">
+                        <div class="circle-btn love">♥</div>
+                        <div class="circle-btn play">▶</div>
+                        <div class="circle-btn note">🎵</div>
+                    </div>
+                    <audio id="audio" src="Pesan Cinta.mp3"></audio>
+                </div>
+                <script>
+                    const audio = document.getElementById('audio');
+                    const playBtn = document.querySelector('.play');
+                    const loveBtn = document.querySelector('.love');
+                    const progress = document.querySelector('.progress');
+                    const currentTimeEl = document.querySelector('.current-time');
+                    const durationEl = document.querySelector('.duration');
+                
+                    let isPlaying = false;
+                
+                    playBtn.addEventListener('click', () => {
+                        if (isPlaying) {
+                            audio.pause();
+                            playBtn.textContent = '▶';
+                        } else {
+                            audio.play();
+                            playBtn.textContent = '⏸';
+                        }
+                        isPlaying = !isPlaying;
+                    });
+                
+                    loveBtn.addEventListener('click', () => {
+                        loveBtn.classList.toggle('active');
+                    });
+                
+                    audio.addEventListener('loadedmetadata', () => {
+                        durationEl.textContent = formatTime(audio.duration);
+                        progress.max = audio.duration;
+                    });
+                
+                    audio.addEventListener('timeupdate', () => {
+                        progress.value = audio.currentTime;
+                        currentTimeEl.textContent = formatTime(audio.currentTime);
+                    });
+                
+                    progress.addEventListener('input', () => {
+                        audio.currentTime = progress.value;
+                    });
+                
+                    function formatTime(seconds) {
+                        const minutes = Math.floor(seconds / 60);
+                        const secs = Math.floor(seconds % 60).toString().padStart(2, '0');
+                        return `${minutes}:${secs}`;
+                    }
+                </script>
+                 <br><br>
+                 <span>
+                     &emsp; Oiya ini 3 gambar yang ku kasih ini digambarin sama orang lain yaa bukan sama aku soalnya aku kurang bakat dalam hal menggambar. Kamu mau suatu fun fact ga? aslinya aku beli gambaran itu identitas ku sembunyikan karena aku ga mau banyak orang yang tau kalo aku suka sama kamu, bahkannn teman dekat sekelas ku aja gaada yang tau, jadi aku harap saat kamu baca surat ini posisi nya lagi sendirian dan setelah itu ga boleh cepu atau ngomong ke teman kamu 1 pun.
+                 </span>
+                <br><br>
+                <span>
+                    &emsp; Aku kasih penjelasan yaa dari ketiga gambar itu, yang gambar hewan fox itu aku pilih karena kamu kalo diliat-liat rada mirip sama fox, terus gambar 2 mata saling tatapan itu maksudnya setiap aku ketemu sama kamu cuman bisa tatapan kayak yang digambar, terus yang terakhir itu foto random aja sih aku ketemu di ig.
+                </span>
+                <br><br>
+                <span>
+                    &emsp; Btw aku ga terlalu berharap lebih dengan respon kamu nanti karena akhir-akhir ini aku sempat dengar kamu lagi dalam proses ngelupain seseorang ya? terus juga agak susah ngelupainnya, aku paham sih susahnya lupain seseorang. Jadi ya respon untuk surat ini is up to u karena aku cuman menyampaikan apa yang mau aku sampaikan. Aku gamau terlalu memaksakan apalagi kamu masih dalam proses.
+                </span>
+                <br><br>
+                <span>
+                    &emsp; Okee mungkin segitu ajaa dari aku, maaf yaa web nya kurang rapi DAN MAAF BANGET AKU NGUCAPIN SAMA BIKIN WEB NYA TELATTTT BANGETTT, MANA UDAH JAUH BANGET LAGI DARI TANGGAL ULTAH MU... soalnya aku dari kemarin sibuk ngurusin lomba sama tugas aku yang lainnn, sekarang aku baru punya waktu luang buat bikin ini hehehe
+                </span>
+            </p>
+            <br>
+            <div class="sincere">
+                <p style="font-weight: bold;">J,</p>
+                <p>Your Admire</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="jquery.js"></script>
+    <script src="jquery2.1.js"></script>
+    <script defer src="valentine-confession.js"></script>
+
+    <script>
+        audio.addEventListener('timeupdate', () => {
+            const progress = (audio.currentTime / audio.duration) * 100;
+            progressBar.style.width = progress + '%';
+            currentTimeEl.textContent = formatTime(audio.currentTime);
+            durationEl.textContent = formatTime(audio.duration);
+        });
+
+        function formatTime(time) {
+            const minutes = Math.floor(time / 60);
+            const seconds = Math.floor(time % 60).toString().padStart(2, '0');
+            return `${minutes}:${seconds}`;
+        }
+    </script>
+</body>
+</html>
